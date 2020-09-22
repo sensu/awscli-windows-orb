@@ -1,0 +1,20 @@
+description: Download and AWSCLIV2. Supports windows/amd64.
+steps:
+  - run:
+      name: Download AWSCLIV2
+      command: curl -LO https://awscli.amazonaws.com/AWSCLIV2.msi
+  - run:
+      name: Install AWSCLIV2
+      shell: powershell.exe
+      command: msiexec.exe /i AWSCLIV2.msi /quiet
+  - run:
+      name: Add AWSCLIV2 to PATH (bash.exe)
+      shell: bash.exe
+      command: >
+        echo 'export PATH="/c/Program Files/Amazon/AWSCLIV2:$PATH"' >> $BASH_ENV
+  - run:
+      name: Add AWSCLIV2 to PATH (powershell.exe)
+      shell: powershell.exe
+      command: |
+        [Environment]::SetEnvironmentVariable("Path", $env:PATH + `
+        ";c:\Program Files\Amazon\AWSCLIV2", "Machine")

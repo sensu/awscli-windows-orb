@@ -1,0 +1,7 @@
+version: 2.1
+
+description: Common CircleCI tasks for AWSCLI on Windows.
+
+display:
+  source_url: https://github.com/amdprophet/awscli-windows-orb
+  home_url: https://aws.amazon.com/cli/
